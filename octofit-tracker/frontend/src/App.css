@@ -1,0 +1,240 @@
+/* ── Global ─────────────────────────────────────────────── */
+:root {
+  --octo-navy:    #0d1b2a;
+  --octo-blue:    #1e3a5f;
+  --octo-teal:    #17a2b8;
+  --octo-green:   #28a745;
+  --octo-orange:  #fd7e14;
+  --octo-light:   #e9f0f8;
+  --octo-white:   #ffffff;
+  --octo-muted:   #6c757d;
+  --octo-border:  #cdd8e3;
+  --octo-shadow:  0 2px 8px rgba(0,0,0,.12);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--octo-light);
+  color: var(--octo-navy);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── App wrapper ────────────────────────────────────────── */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navigation bar ─────────────────────────────────────── */
+.navbar {
+  background: linear-gradient(135deg, var(--octo-navy) 0%, var(--octo-blue) 100%) !important;
+  box-shadow: var(--octo-shadow);
+  padding: 0.5rem 1.5rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--octo-white) !important;
+  letter-spacing: 0.02em;
+}
+
+.navbar-brand img.app-logo {
+  height: 36px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.navbar-brand:hover {
+  color: var(--octo-teal) !important;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,.82) !important;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--octo-white) !important;
+  background-color: rgba(23,162,184,.25);
+}
+
+/* ── Page container ─────────────────────────────────────── */
+.container {
+  max-width: 1100px;
+}
+
+/* ── Headings ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--octo-blue);
+  font-weight: 700;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; border-bottom: 3px solid var(--octo-teal); padding-bottom: .35rem; margin-bottom: 1.1rem; }
+h3 { font-size: 1.3rem; }
+
+.welcome-heading {
+  color: var(--octo-blue);
+  font-size: 2.4rem;
+  margin-top: 1rem;
+}
+
+/* ── Links ──────────────────────────────────────────────── */
+a {
+  color: var(--octo-teal);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--octo-orange);
+  text-decoration: underline;
+}
+
+/* ── Cards ──────────────────────────────────────────────── */
+.card {
+  border: 1px solid var(--octo-border);
+  border-radius: 10px;
+  box-shadow: var(--octo-shadow);
+  background: var(--octo-white);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--octo-blue) 0%, var(--octo-teal) 100%);
+  color: var(--octo-white);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 9px 9px 0 0 !important;
+  padding: 0.75rem 1.25rem;
+}
+
+/* ── Tables ─────────────────────────────────────────────── */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: var(--octo-blue);
+  color: var(--octo-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1rem;
+  border: none;
+}
+
+.table thead th:first-child { border-radius: 8px 0 0 0; }
+.table thead th:last-child  { border-radius: 0 8px 0 0; }
+
+.table tbody tr:nth-child(even) { background-color: #eef4fb; }
+.table tbody tr:hover             { background-color: #dceeff; transition: background 0.15s; }
+
+.table tbody td {
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--octo-border);
+  color: var(--octo-navy);
+  vertical-align: middle;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  background-color: var(--octo-blue);
+  border-color: var(--octo-blue);
+  color: var(--octo-white);
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+.btn-primary:hover {
+  background-color: var(--octo-teal);
+  border-color: var(--octo-teal);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background-color: var(--octo-green);
+  border-color: var(--octo-green);
+  font-weight: 600;
+  border-radius: 6px;
+  transition: filter 0.2s, transform 0.1s;
+}
+.btn-success:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-warning {
+  background-color: var(--octo-orange);
+  border-color: var(--octo-orange);
+  color: var(--octo-white);
+  font-weight: 600;
+  border-radius: 6px;
+  transition: filter 0.2s, transform 0.1s;
+}
+.btn-warning:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-danger {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: filter 0.2s, transform 0.1s;
+}
+.btn-danger:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+/* ── Badges & rank indicators ───────────────────────────── */
+.badge-rank-1 { background-color: #ffd700; color: #333; }
+.badge-rank-2 { background-color: #c0c0c0; color: #333; }
+.badge-rank-3 { background-color: #cd7f32; color: #fff; }
+
+/* ── Welcome section ────────────────────────────────────── */
+.welcome-section {
+  background: linear-gradient(135deg, var(--octo-blue) 0%, var(--octo-teal) 100%);
+  color: var(--octo-white);
+  border-radius: 14px;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--octo-shadow);
+}
+.welcome-section h1 { color: var(--octo-white); }
+.welcome-section p  { color: rgba(255,255,255,.9); font-size: 1.1rem; }
+
+/* ── Alerts ─────────────────────────────────────────────── */
+.alert-info {
+  background-color: #d1edf4;
+  border-color: var(--octo-teal);
+  color: #0c5460;
+}
+
+/* ── Spinner ────────────────────────────────────────────── */
+.spinner-border {
+  color: var(--octo-teal);
+}
+
+/* ── Footer spacer ──────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 1.2rem;
+  background: var(--octo-navy);
+  color: rgba(255,255,255,.55);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* ── App-link (legacy) ──────────────────────────────────── */
+.App-link { color: var(--octo-teal); }
