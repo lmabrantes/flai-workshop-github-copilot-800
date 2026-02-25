@@ -28,6 +28,7 @@ function Users() {
 
   return (
     <div className="container mt-4">
+      <a href="/" className="btn btn-secondary mb-3">&larr; Back to Homepage</a>
       <h2>Users</h2>
       {error && <div className="alert alert-danger">Error: {error}</div>}
       <table className="table table-striped table-hover">
