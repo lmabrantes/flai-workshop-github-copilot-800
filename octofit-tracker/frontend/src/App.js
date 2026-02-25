@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import './App.css';
 import logo from './octofitapp-small.png';
 import Users from './components/Users';
@@ -7,6 +7,37 @@ import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Workouts from './components/Workouts';
+
+function Home() {
+  const navigate = useNavigate();
+  const cards = [
+    { title: 'Users', path: '/users', description: 'View and manage OctoFit members.' },
+    { title: 'Activities', path: '/activities', description: 'Log and track your fitness activities.' },
+    { title: 'Leaderboard', path: '/leaderboard', description: 'See who is leading the competition.' },
+  ];
+  return (
+    <div className="welcome-section text-center">
+      <h1>Welcome to OctoFit Tracker</h1>
+      <p className="lead">Track your fitness activities, join teams, and compete on the leaderboard!</p>
+      <div className="row justify-content-center mt-4">
+        {cards.map((card) => (
+          <div key={card.path} className="col-md-3 mb-4">
+            <div
+              className="card h-100 shadow-sm"
+              style={{ cursor: 'pointer' }}
+              onClick={() => navigate(card.path)}
+            >
+              <div className="card-body d-flex flex-column justify-content-center">
+                <h5 className="card-title">{card.title}</h5>
+                <p className="card-text">{card.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -52,15 +83,7 @@ function App() {
 
       <div className="container mt-4">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="welcome-section text-center">
-                <h1>Welcome to OctoFit Tracker</h1>
-                <p className="lead">Track your fitness activities, join teams, and compete on the leaderboard!</p>
-              </div>
-            }
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
