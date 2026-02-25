@@ -18,27 +18,27 @@ class Command(BaseCommand):
         # Create users (superheroes)
         self.stdout.write('Creating users...')
         users_data = [
-            {'name': 'Tony Stark', 'email': 'ironman@marvel.com', 'password': 'iamironman'},
-            {'name': 'Steve Rogers', 'email': 'cap@marvel.com', 'password': 'avengers1'},
-            {'name': 'Peter Parker', 'email': 'spidey@marvel.com', 'password': 'webslinger'},
-            {'name': 'Bruce Banner', 'email': 'hulk@marvel.com', 'password': 'smash123'},
-            {'name': 'Natasha Romanoff', 'email': 'blackwidow@marvel.com', 'password': 'widow99'},
-            {'name': 'Bruce Wayne', 'email': 'batman@dc.com', 'password': 'darknight'},
-            {'name': 'Clark Kent', 'email': 'superman@dc.com', 'password': 'krypton1'},
-            {'name': 'Diana Prince', 'email': 'wonderwoman@dc.com', 'password': 'themyscira'},
-            {'name': 'Barry Allen', 'email': 'flash@dc.com', 'password': 'speedforce'},
-            {'name': 'Hal Jordan', 'email': 'greenlantern@dc.com', 'password': 'willpower'},
+            {'username': 'tony_stark', 'first_name': 'Tony', 'last_name': 'Stark', 'email': 'ironman@marvel.com', 'password': 'iamironman'},
+            {'username': 'steve_rogers', 'first_name': 'Steve', 'last_name': 'Rogers', 'email': 'cap@marvel.com', 'password': 'avengers1'},
+            {'username': 'peter_parker', 'first_name': 'Peter', 'last_name': 'Parker', 'email': 'spidey@marvel.com', 'password': 'webslinger'},
+            {'username': 'bruce_banner', 'first_name': 'Bruce', 'last_name': 'Banner', 'email': 'hulk@marvel.com', 'password': 'smash123'},
+            {'username': 'natasha_romanoff', 'first_name': 'Natasha', 'last_name': 'Romanoff', 'email': 'blackwidow@marvel.com', 'password': 'widow99'},
+            {'username': 'bruce_wayne', 'first_name': 'Bruce', 'last_name': 'Wayne', 'email': 'batman@dc.com', 'password': 'darknight'},
+            {'username': 'clark_kent', 'first_name': 'Clark', 'last_name': 'Kent', 'email': 'superman@dc.com', 'password': 'krypton1'},
+            {'username': 'diana_prince', 'first_name': 'Diana', 'last_name': 'Prince', 'email': 'wonderwoman@dc.com', 'password': 'themyscira'},
+            {'username': 'barry_allen', 'first_name': 'Barry', 'last_name': 'Allen', 'email': 'flash@dc.com', 'password': 'speedforce'},
+            {'username': 'hal_jordan', 'first_name': 'Hal', 'last_name': 'Jordan', 'email': 'greenlantern@dc.com', 'password': 'willpower'},
         ]
         users = {}
         for data in users_data:
             user = User.objects.create(**data)
-            users[data['name']] = user
-            self.stdout.write(f"  Created user: {data['name']}")
+            users[data['username']] = user
+            self.stdout.write(f"  Created user: {data['username']}")
 
         # Create teams
         self.stdout.write('Creating teams...')
-        marvel_members = ['Tony Stark', 'Steve Rogers', 'Peter Parker', 'Bruce Banner', 'Natasha Romanoff']
-        dc_members = ['Bruce Wayne', 'Clark Kent', 'Diana Prince', 'Barry Allen', 'Hal Jordan']
+        marvel_members = ['tony_stark', 'steve_rogers', 'peter_parker', 'bruce_banner', 'natasha_romanoff']
+        dc_members = ['bruce_wayne', 'clark_kent', 'diana_prince', 'barry_allen', 'hal_jordan']
 
         team_marvel = Team.objects.create(name='Team Marvel', members=marvel_members)
         team_dc = Team.objects.create(name='Team DC', members=dc_members)
@@ -48,16 +48,16 @@ class Command(BaseCommand):
         # Create activities
         self.stdout.write('Creating activities...')
         activities_data = [
-            {'user': 'Tony Stark', 'activity_type': 'Iron Man Flight Training', 'duration': 45.0, 'date': datetime.date(2025, 1, 15)},
-            {'user': 'Steve Rogers', 'activity_type': 'Shield Throwing', 'duration': 60.0, 'date': datetime.date(2025, 1, 15)},
-            {'user': 'Peter Parker', 'activity_type': 'Web Swinging', 'duration': 30.0, 'date': datetime.date(2025, 1, 16)},
-            {'user': 'Bruce Banner', 'activity_type': 'Anger Management Run', 'duration': 90.0, 'date': datetime.date(2025, 1, 16)},
-            {'user': 'Natasha Romanoff', 'activity_type': 'Martial Arts Training', 'duration': 75.0, 'date': datetime.date(2025, 1, 17)},
-            {'user': 'Bruce Wayne', 'activity_type': 'Night Patrol Parkour', 'duration': 120.0, 'date': datetime.date(2025, 1, 15)},
-            {'user': 'Clark Kent', 'activity_type': 'Super Speed Running', 'duration': 20.0, 'date': datetime.date(2025, 1, 15)},
-            {'user': 'Diana Prince', 'activity_type': 'Lasso Combat Training', 'duration': 55.0, 'date': datetime.date(2025, 1, 16)},
-            {'user': 'Barry Allen', 'activity_type': 'Speed Force Sprint', 'duration': 10.0, 'date': datetime.date(2025, 1, 17)},
-            {'user': 'Hal Jordan', 'activity_type': 'Green Lantern Construct Building', 'duration': 40.0, 'date': datetime.date(2025, 1, 17)},
+            {'user': 'tony_stark', 'activity_type': 'Iron Man Flight Training', 'duration': 45.0, 'date': datetime.date(2025, 1, 15)},
+            {'user': 'steve_rogers', 'activity_type': 'Shield Throwing', 'duration': 60.0, 'date': datetime.date(2025, 1, 15)},
+            {'user': 'peter_parker', 'activity_type': 'Web Swinging', 'duration': 30.0, 'date': datetime.date(2025, 1, 16)},
+            {'user': 'bruce_banner', 'activity_type': 'Anger Management Run', 'duration': 90.0, 'date': datetime.date(2025, 1, 16)},
+            {'user': 'natasha_romanoff', 'activity_type': 'Martial Arts Training', 'duration': 75.0, 'date': datetime.date(2025, 1, 17)},
+            {'user': 'bruce_wayne', 'activity_type': 'Night Patrol Parkour', 'duration': 120.0, 'date': datetime.date(2025, 1, 15)},
+            {'user': 'clark_kent', 'activity_type': 'Super Speed Running', 'duration': 20.0, 'date': datetime.date(2025, 1, 15)},
+            {'user': 'diana_prince', 'activity_type': 'Lasso Combat Training', 'duration': 55.0, 'date': datetime.date(2025, 1, 16)},
+            {'user': 'barry_allen', 'activity_type': 'Speed Force Sprint', 'duration': 10.0, 'date': datetime.date(2025, 1, 17)},
+            {'user': 'hal_jordan', 'activity_type': 'Green Lantern Construct Building', 'duration': 40.0, 'date': datetime.date(2025, 1, 17)},
         ]
         for data in activities_data:
             Activity.objects.create(**data)
@@ -66,16 +66,16 @@ class Command(BaseCommand):
         # Create leaderboard entries
         self.stdout.write('Creating leaderboard entries...')
         leaderboard_data = [
-            {'user': 'Clark Kent', 'score': 9800},
-            {'user': 'Barry Allen', 'score': 9500},
-            {'user': 'Bruce Wayne', 'score': 8900},
-            {'user': 'Tony Stark', 'score': 8700},
-            {'user': 'Natasha Romanoff', 'score': 8400},
-            {'user': 'Diana Prince', 'score': 8200},
-            {'user': 'Steve Rogers', 'score': 8000},
-            {'user': 'Peter Parker', 'score': 7600},
-            {'user': 'Hal Jordan', 'score': 7400},
-            {'user': 'Bruce Banner', 'score': 7000},
+            {'user': 'clark_kent', 'score': 9800},
+            {'user': 'barry_allen', 'score': 9500},
+            {'user': 'bruce_wayne', 'score': 8900},
+            {'user': 'tony_stark', 'score': 8700},
+            {'user': 'natasha_romanoff', 'score': 8400},
+            {'user': 'diana_prince', 'score': 8200},
+            {'user': 'steve_rogers', 'score': 8000},
+            {'user': 'peter_parker', 'score': 7600},
+            {'user': 'hal_jordan', 'score': 7400},
+            {'user': 'bruce_banner', 'score': 7000},
         ]
         for data in leaderboard_data:
             Leaderboard.objects.create(**data)
