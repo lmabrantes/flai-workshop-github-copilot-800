@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
+import logo from './octofitapp-small.png';
 import Users from './components/Users';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
@@ -13,6 +14,7 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
+            <img src={logo} alt="OctoFit" className="app-logo" />
             OctoFit Tracker
           </NavLink>
           <button
@@ -53,7 +55,7 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="text-center">
+              <div className="welcome-section text-center">
                 <h1>Welcome to OctoFit Tracker</h1>
                 <p className="lead">Track your fitness activities, join teams, and compete on the leaderboard!</p>
               </div>
@@ -66,6 +68,9 @@ function App() {
           <Route path="/workouts" element={<Workouts />} />
         </Routes>
       </div>
+      <footer className="footer">
+        &copy; {new Date().getFullYear()} OctoFit Tracker &mdash; Stay active, stay healthy!
+      </footer>
     </div>
   );
 }
