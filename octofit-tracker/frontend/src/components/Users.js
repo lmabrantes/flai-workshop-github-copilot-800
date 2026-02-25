@@ -33,21 +33,27 @@ function Users() {
       <table className="table table-striped table-hover">
         <thead className="table-dark">
           <tr>
-            <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Username</th>
             <th>Email</th>
+            <th>Name</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user._id || user.id}>
-              <td>{user.username}</td>
-              <td>{user.first_name}</td>
-              <td>{user.last_name}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
+          {users.map((user) => {
+            const capitalize = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+            const fullName = `${capitalize(user.first_name)} ${capitalize(user.last_name)}`.trim();
+            return (
+              <tr key={user._id || user.id}>
+                <td>{user.first_name}</td>
+                <td>{user.last_name}</td>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+                <td>{fullName}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
